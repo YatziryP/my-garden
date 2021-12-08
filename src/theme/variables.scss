@@ -1,6 +1,13 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/roboto.woff2') format('woff2');
+}
 
+*{
+  font-family: 'Roboto', sans-serif;
+}
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
@@ -74,6 +81,13 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  // my-garden
+  --ion-color-verde-fuerte: #95C92C;
+  --ion-color-verde-bajo: #B5E655;
+  --ion-color-azul-fuerte: #4CB6C2;
+  --ion-color-azul-bajo: #7FC7BD;
+  --ion-color-cafe: #B5882E;
 }
 
 @media (prefers-color-scheme: dark) {

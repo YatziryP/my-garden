@@ -1,17 +1,115 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
+  <!-- <ion-toolbar >
+     <ion-title>
+      My Garden
     </ion-title>
-  </ion-toolbar>
+  </ion-toolbar> -->
+  <!-- <ion-toolbar>
+    <ion-title size="large" class="ion-text-end">My Garden</ion-title>
+  </ion-toolbar> -->
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+    <ion-toolbar class="titulo" >
+      <!-- quite eso de class size="large" class="ion-text-end" -->
+      My Garden
     </ion-toolbar>
   </ion-header>
+<!-- contenedor de abajo blanco que cubre desplazamiento de pantalla -->
+  <div class="container-blanco"></div>
+ <!-- *********calendario *********                  -->
+  <div class="wrapper-calendar">
+    <div class="header-calendar">
+      <div>
+        <button (click)="changeMonth(-1)" class="btn-prev"><ion-icon name="arrow-back-outline"></ion-icon></button>
+      </div>
+      <h1>{{dateSelect | date:'MMMM, yyyy'}}</h1>
+      <div>
+        <button (click)="changeMonth(1)" class="btn-next"><ion-icon name="arrow-forward-outline"></ion-icon></button>
+      </div>
+    </div>
+    <ol>
+      <!-- muestra los dias del mes con 3 caracteres -->
+      <li *ngFor="let day of week" class="day-name">{{day | slice:0:3}}</li>
+  
+          <li (click)="clickDay(day)" [style.gridColumnStart]="first ? day?.indexWeek : 'auto'"
+           *ngFor="let day of monthSelect;let first = first">
+        <span>{{day?.value}}</span>
+      </li>
+    </ol>
+  </div>
+  <!-- mostrar fecha -->
+  <!-- <div>
+    Fecha: {{dateValue | date}}
+  </div> -->
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+
+  <!-- *********subtitulo *********                  -->
+  <div class="ion-subtitulo-tareas">
+    <h5>Water Plants Today:</h5>
+  </div>
+  <!-- *********lista de tareas de riego *********                  -->
+  <div class="container-list">
+  <div class="ion-lista-riego">
+    <div style="background-color: var(--ion-color-verde-fuerte);">
+      <img src="https://cdn-icons-png.flaticon.com/512/185/185781.png" class="img-card">
+      <h6>Amapola</h6>
+      <ion-icon class="icono1" style="background-color: #A8D64C; border-radius: 70px 0px 0px 8px;" name="checkmark-circle"></ion-icon>
+      <ion-icon class="icono1" style="background-color: #A8D64C; border-radius: 0px 15px 15px 0px;" name="close-circle"></ion-icon>
+    </div>
+    <br>
+    <div style="background-color: var(--ion-color-verde-bajo);">
+      <img src="https://cdn-icons-png.flaticon.com/512/185/185801.png" class="img-card">
+      <h6>Amapola</h6>
+      <ion-icon class="icono1" style="background-color:#C9EF80 ; border-radius: 70px 0px 0px 8px;" name="checkmark-circle"></ion-icon>
+      <ion-icon class="icono1" style="background-color:#C9EF80  ; border-radius: 0px 15px 15px 0px;" name="close-circle"></ion-icon>
+    </div>
+    <br>
+    <div style="background-color: var(--ion-color-azul-fuerte);">
+      <img src="https://cdn-icons-png.flaticon.com/512/185/185758.png" class="img-card">
+      <h6>Amapola</h6>
+      <ion-icon class="icono1" style="background-color: #66CBD6; border-radius: 70px 0px 0px 8px;" name="checkmark-circle"></ion-icon>
+      <ion-icon class="icono1" style="background-color: #66CBD6; border-radius: 0px 15px 15px 0px;" name="close-circle"></ion-icon>
+    </div>
+    <br>
+    <div style="background-color: var(--ion-color-azul-bajo);">
+      <img src="https://cdn-icons-png.flaticon.com/512/185/185792.png" class="img-card">
+      <h6>Amapola</h6>
+      <ion-icon class="icono1" style="background-color: #9BCFC8; border-radius: 70px 0px 0px 8px;" name="checkmark-circle"></ion-icon>
+      <ion-icon class="icono1" style="background-color: #9BCFC8; border-radius: 0px 15px 15px 0px;" name="close-circle"></ion-icon>
+    </div>
+    <br>
+    <div style="background-color: var(--ion-color-verde-fuerte);">
+      <img src="https://cdn-icons-png.flaticon.com/512/185/185756.png" class="img-card">
+      <h6>Amapola</h6>
+      <ion-icon class="icono1" style="background-color: #A8D64C; border-radius: 70px 0px 0px 8px;" name="checkmark-circle"></ion-icon>
+      <ion-icon class="icono1" style="background-color: #A8D64C; border-radius: 0px 15px 15px 0px;" name="close-circle"></ion-icon>
+    </div>
+    <br>
+    <div style="background-color: var(--ion-color-verde-bajo);">
+      <img src="https://cdn-icons-png.flaticon.com/512/185/185765.png" class="img-card">
+      <h6>Amapola</h6>
+      <ion-icon class="icono1" style="background-color: #C9EF80; border-radius: 70px 0px 0px 8px;" name="checkmark-circle"></ion-icon>
+      <ion-icon class="icono1" style="background-color: #C9EF80; border-radius: 0px 15px 15px 0px;" name="close-circle"></ion-icon>
+    </div>
+    <br>
+    <div style="background-color: var(--ion-color-azul-fuerte);">
+      <img src="https://cdn-icons-png.flaticon.com/512/185/185757.png" class="img-card">
+      <h6>Amapola</h6>
+      <ion-icon class="icono1" style="background-color: #66CBD6; border-radius: 70px 0px 0px 8px;" name="checkmark-circle"></ion-icon>
+      <ion-icon class="icono1" style="background-color: #66CBD6; border-radius: 0px 15px 15px 0px;" name="close-circle"></ion-icon>
+    </div>
+    <br>
+    <div style="background-color: var(--ion-color-azul-bajo);">
+      <img src="https://cdn-icons-png.flaticon.com/512/185/185789.png" class="img-card">
+      <h6>Amapola</h6>
+      <ion-icon class="icono1" style="background-color: #9BCFC8; border-radius: 70px 0px 0px 8px;" name="checkmark-circle"></ion-icon>
+      <ion-icon class="icono1" style="background-color: #9BCFC8; border-radius: 0px 15px 15px 0px;" name="close-circle"></ion-icon>
+    </div>
+    <br>
+
+  </div>
+</div>
+
 </ion-content>

@@ -1,1 +1,32 @@
 
+    @font-face {
+        font-family: 'Roboto';
+        src: url('../../assets/fonts/roboto.woff2') format('woff2');
+      }
+      
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+      }
+
+      .nav-bar{
+        border-radius: 20px;
+        height: 3rem;
+        margin-bottom: 20px;
+        margin-top: 12px;
+        box-shadow: 2px 8px 8px rgb(199, 197, 193);
+        border:none;
+      }
+
+      ion-icon{
+        position: relative;
+        display: block;
+        transition: 0.3s;
+        z-index: 5 !important;
+      }
+
+      ion-icon:hover{
+        transform: translateY(-10px);
+      }
